@@ -2,18 +2,13 @@
 
 {
   imports =
-    [ ../modules/core.nix
+    [ ../modules/kde.nix
+      ../modules/core.nix
       ../modules/art.nix
-
       ../modules/steam.nix
       ../modules/nvidia_prime.nix
+      ../modules/emacs.nix
     ];
-
-  environment.systemPackages = [
-    (import ../modules/emacs.nix { inherit pkgs; })
-  ];
-  services.emacs.enable = true;
-  services.emacs.defaultEditor = true;
 
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
@@ -48,10 +43,6 @@
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   users.mutableUsers = true;
 
