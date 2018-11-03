@@ -7,11 +7,11 @@
     ];
 
   environment.systemPackages = with pkgs; [
+    st
     super-user-spark
     firefox
     git
-    python ruby nodejs gcc 
-    rustc rustfmt cargo
+    python gcc 
     curl wget
     networkmanager
     idea.idea-community
@@ -19,4 +19,8 @@
     lsof
     fzf
   ];
+
+  # nixpkgs.config = {
+  #   firefox.enableAdobeFlash = true;
+  # };
 }

@@ -2,10 +2,16 @@
 
 {
   imports =
-    [];
+    [ ./x11.nix
+    ];
+
+  environment.systemPackages = with pkgs; [
+    networkmanager_dmenu
+    xorg.xbacklight
+    #dmenu
+    xfce.thunar
+  ];
 
   # enable stumpwm
-  environment.systemPackages = with pkgs; [
-    stumpwm
-  ];
+  services.xserver.windowManager.stumpwm.enable = true;
 }

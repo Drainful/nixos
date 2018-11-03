@@ -5,5 +5,4 @@ let
 in
   emacsWithPackages (epkgs: (with epkgs.melpaPackages; [
     use-package
-    slime
   ]))
