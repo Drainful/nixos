@@ -20,7 +20,7 @@
     fzf
   ];
 
-  # nixpkgs.config = {
-  #   firefox.enableAdobeFlash = true;
-  # };
+  nixpkgs.config = {
+    firefox.enableAdobeFlash = true;
+  };
 }

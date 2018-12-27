@@ -1,13 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     (import ../modules/myemacs.nix { inherit pkgs; })
-    pkgs.sbcl
-    pkgs.lispPackages.quicklisp
-
-    # rlwrap for sbcl when slime won't do.
-    pkgs.rlwrap
+    # tags server for emacs
+    cquery
   ];
   services.emacs.enable = true;
   services.emacs.defaultEditor = true;
