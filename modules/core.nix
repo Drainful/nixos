@@ -4,23 +4,39 @@
   imports =
     [ # ./bash.nix
       # ./neovim.nix
+      ./mysql.nix
+			./guistuff.nix
     ];
 
   environment.systemPackages = with pkgs; [
     st
     super-user-spark
-    firefox
     git
-    python gcc 
-    curl wget
+    python
+    curl
+    wget
     networkmanager
-    idea.idea-community
     neovim
     lsof
     fzf
-  ];
 
-  nixpkgs.config = {
-    firefox.enableAdobeFlash = true;
-  };
+    # vpn for accessing school server
+    openconnect
+
+    # backup through google drive
+    gdrive
+
+    # sync files
+    rsync
+
+    # C
+    gcc 
+    premake5
+
+		# Racket
+		racket
+
+		# Red
+		red
+  ];
 }

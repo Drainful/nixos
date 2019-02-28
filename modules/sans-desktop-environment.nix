@@ -2,15 +2,18 @@
 
 {
   imports =
-    [ ./x11.nix
+    [
     ];
 
   environment.systemPackages = with pkgs; [
+	  # network management
+    networkmanager
+	  networkmanagerapplet
     # bluetooth
     bluedevil
     bluez
+		# status bar
+		dzen2
+		# cbatticon
   ];
-
-  # enable stumpwm
-  services.xserver.windowManager.stumpwm.enable = true;
 }
