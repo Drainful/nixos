@@ -38,5 +38,11 @@
 
 		# Red
 		red
+
+    # C++ man pages
+		manpages
   ];
+
+  # enable developer manpages
+  documentation.dev.enable = true;
 }
