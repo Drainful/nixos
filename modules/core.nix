@@ -5,20 +5,36 @@
     [ # ./bash.nix
       # ./neovim.nix
       ./mysql.nix
-			./guistuff.nix
+			# ./lorri.nix
     ];
 
   environment.systemPackages = with pkgs; [
-    st
+
+    # for setting up dotfiles
     super-user-spark
+
+    # Version control
     git
-    python
+		subversion19
+
+    # tools
     curl
     wget
     networkmanager
-    neovim
     lsof
     fzf
+
+    # Wraps bad tui
+    rlwrap
+
+		# backup editor
+    neovim
+
+		# direnv for better nix-shell integration
+		direnv
+
+		# nox for better nix package searching
+		nox
 
     # vpn for accessing school server
     openconnect
@@ -28,16 +44,6 @@
 
     # sync files
     rsync
-
-    # C
-    gcc 
-    premake5
-
-		# Racket
-		racket
-
-		# Red
-		red
 
     # C++ man pages
 		manpages

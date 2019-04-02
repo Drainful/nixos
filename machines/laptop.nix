@@ -9,8 +9,8 @@
       ../modules/steam.nix
       ../modules/nvidia_prime.nix
       ../modules/emacs.nix
-      ../modules/common-lisp.nix
 			../modules/vsftpd.nix
+			../modules/bluetooth.nix
     ];
 
   # Use the systemd-boot EFI boot loader
@@ -45,14 +45,11 @@
   # Enable the OpenSSH server.
   services.sshd.enable = true;
 
-  # Enable sound.
-  hardware = {
-    pulseaudio = {
+	# Sound
+  hardware.pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
     };
-    bluetooth.enable = true;
-  };
   sound.enable = true;
 
   # Enable touchpad support.
@@ -69,14 +66,5 @@
     uid = 1000;
   };
 
-  users.users.eelco = {
-    isNormalUser = true;
-    name = "eelco";
-    description = "Eelco Dolstra";
-    extraGroups = [ "wheel" "networkmanager" ];
-    uid = 1001;
-  };
-
-  # environment.noXlibs = true;
-	services.xserver.videoDrivers = ["modesetting"];
+	# services.xserver.videoDrivers = ["modesetting"];
 }

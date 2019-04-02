@@ -3,6 +3,7 @@
 {
   imports =
     [
+		./fancyfonts.nix
     ];
 
   environment.systemPackages = with pkgs; [
@@ -51,6 +52,6 @@
   ];
 
   nixpkgs.config = {
-    firefox.enableAdobeFlash = true;
+    firefox.enableAdobeFlash = false;
   };
 }
