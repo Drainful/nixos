@@ -3,7 +3,7 @@
 {
   imports =
     [
-		  ../modules/kde.nix
+		  ../modules/exwm.nix
       ../modules/core.nix
       ../modules/art.nix
       ../modules/steam.nix
@@ -11,16 +11,23 @@
       ../modules/emacs.nix
 			../modules/vsftpd.nix
 			../modules/bluetooth.nix
+			# ../modules/hidpi-cursor.nix
     ];
 
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
 
-  networking.hostName = "nix"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    # interfaceMonitor.enable = false; # Disable in favour of wicd
+    wireless.enable = false;  # Disable in favour of wicd
+    useDHCP = false;  # Disable in favour of wicd
+    wicd.enable = true;
+  };
 
   # Select internationalisation properties.
   i18n = {
+	  # big font for visibility on 4k monitor
     consoleFont = "latarcyrheb-sun32";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
@@ -62,9 +69,12 @@
     isNormalUser = true;
     name = "adrian";
     description = "Adrian Fullmer";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
     uid = 1000;
   };
 
 	# services.xserver.videoDrivers = ["modesetting"];
+
+  # lightdm cursor size
+	environment.variables.XCURSOR_SIZE="64";
 }

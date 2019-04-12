@@ -10,6 +10,9 @@
 	  # Firefox
     firefox
 
+    # Spotify client
+		spotify
+
     # Emacs but worse
     idea.idea-community
 
@@ -32,19 +35,13 @@
 
     # Image viewer
     gwenview
+		feh
 
     #Document reader
     okular    
 
     # Media player 
     vlc
-
-    # KDE apps
-    kdeFrameworks.kconfig
-    kdeFrameworks.kconfigwidgets
-    konsole
-    dolphin
-    kdeApplications.dolphin-plugins
 
     # KDE partition manager
     partition-manager

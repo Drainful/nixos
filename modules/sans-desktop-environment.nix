@@ -6,14 +6,22 @@
     ];
 
   environment.systemPackages = with pkgs; [
-	  # network management
-    networkmanager
-	  networkmanagerapplet
     # bluetooth
-    bluedevil
+		blueman
     bluez
-		# status bar
-		dzen2
-		# cbatticon
+
+		# The following command line tools are used in emacs plugin "desktop-environment":
+
+		# command line screenshot
+		scrot
+    # lock computer through command line
+		slock
+		# control keyboard backlight through command line
+		upower
+    # Enable brightnessctl in userspace
+	  brightnessctl
   ];
+
+  # Enable brightnessctl in userspace
+	hardware.brightnessctl.enable = true;
 }

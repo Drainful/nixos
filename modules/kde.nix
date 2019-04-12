@@ -7,6 +7,14 @@
     ];
 
   environment.systemPackages = with pkgs; [
+
+    # KDE apps
+    kdeFrameworks.kconfig
+    kdeFrameworks.kconfigwidgets
+    konsole
+    dolphin
+    kdeApplications.dolphin-plugins
+
   ];
 
   # Enable the KDE Desktop Environment.

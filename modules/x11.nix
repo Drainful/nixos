@@ -12,6 +12,13 @@
 		# actually 282, but apparently a multiple of 96 is best? also 282
 		# is too large
 		# dpi = 192;
+
+		# libinput settings for mouse
+		libinput = {
+		  enable = true;
+		  accelProfile = "flat";
+			accelSpeed = "0.7";
+    };
   };
 
 	# Just to set all DPI in the same place

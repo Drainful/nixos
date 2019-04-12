@@ -5,6 +5,7 @@
     [ # ./bash.nix
       # ./neovim.nix
       ./mysql.nix
+			./python.nix
 			# ./lorri.nix
     ];
 
@@ -23,6 +24,8 @@
     networkmanager
     lsof
     fzf
+		atool # archive utility
+		zip
 
     # Wraps bad tui
     rlwrap

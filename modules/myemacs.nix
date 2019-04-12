@@ -4,5 +4,5 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaPackages; [
-    use-package
+    # use-package
   ]))
