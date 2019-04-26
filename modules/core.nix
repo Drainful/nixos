@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+in 
 {
   imports =
     [ # ./bash.nix
@@ -50,6 +53,12 @@
 
     # C++ man pages
 		manpages
+
+    unstable.wine
+		unstable.winetricks
+
+		# better x keybindings
+    xcape
   ];
 
   # enable developer manpages

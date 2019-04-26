@@ -4,6 +4,7 @@
   imports =
     [ ./x11.nix
 			./guistuff.nix
+			./default-networking.nix
     ];
 
   environment.systemPackages = with pkgs; [

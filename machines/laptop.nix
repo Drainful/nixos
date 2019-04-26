@@ -3,7 +3,7 @@
 {
   imports =
     [
-		  ../modules/exwm.nix
+		  ../modules/kde.nix
       ../modules/core.nix
       ../modules/art.nix
       ../modules/steam.nix
@@ -19,10 +19,6 @@
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    # interfaceMonitor.enable = false; # Disable in favour of wicd
-    wireless.enable = false;  # Disable in favour of wicd
-    useDHCP = false;  # Disable in favour of wicd
-    wicd.enable = true;
   };
 
   # Select internationalisation properties.
