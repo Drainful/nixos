@@ -17,9 +17,7 @@
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
 
-  networking = {
-    hostName = "nixos"; # Define your hostname.
-  };
+  networking.hostName = "nixos"; # Define your hostname.
 
   # Select internationalisation properties.
   i18n = {
