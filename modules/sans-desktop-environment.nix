@@ -3,7 +3,7 @@
 {
   imports =
     [
-		  ./wicd.nix
+		  # ./wicd.nix
     ];
 
   environment.systemPackages = with pkgs; [
