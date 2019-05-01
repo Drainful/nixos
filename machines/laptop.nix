@@ -3,7 +3,7 @@
 {
   imports =
     [
-		  ../modules/kde.nix
+		  ../modules/exwm.nix
       ../modules/core.nix
       ../modules/art.nix
       ../modules/steam.nix
