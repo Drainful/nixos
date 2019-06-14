@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+in 
 {
   imports =
     [
@@ -8,30 +11,17 @@
 
   environment.systemPackages = with pkgs; [
 	  # Firefox
-    firefox
+    unstable.firefox
 
     # Spotify client
 		spotify
 
     # Emacs but worse
     idea.idea-community
-
-    # Password manager for KDE
-    kdeFrameworks.kwallet
-    kdeApplications.kwalletmanager
-    kwalletcli
-                            
-    ark
-
-    # Screenshots
-    kdeApplications.spectacle
-
-    # Torrenting
-    ktorrent
-
-    # Printing and scanning
-    kdeApplications.print-manager
     simple-scan
+
+		# Gui archive manager
+    ark
 
     # Image viewer
     gwenview
@@ -46,9 +36,15 @@
     # KDE partition manager
     partition-manager
     lvm2
+
+    # Terminal emulator
+		unstable.alacritty
+
+		nethack-x11
+		nethack-qt
   ];
 
   nixpkgs.config = {
-    firefox.enableAdobeFlash = false;
+    firefox.enableAdobeFlash = true;
   };
 }

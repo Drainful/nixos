@@ -4,17 +4,27 @@
   imports =
     [ ./x11.nix
 			./guistuff.nix
-			# ./default-networking.nix
+			./default-networking.nix
     ];
 
   environment.systemPackages = with pkgs; [
-
     # KDE apps
     kdeFrameworks.kconfig
     kdeFrameworks.kconfigwidgets
     konsole
     dolphin
     kdeApplications.dolphin-plugins
+
+    kdeFrameworks.kwallet
+    kdeApplications.kwalletmanager
+    kwalletcli
+                            
+
+    kdeApplications.spectacle
+
+    ktorrent
+
+    kdeApplications.print-manager
 
   ];
 

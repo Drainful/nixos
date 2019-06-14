@@ -3,7 +3,7 @@
 {
   imports =
     [
-		  # ./wicd.nix
+		  ./default-networking.nix
     ];
 
   environment.systemPackages = with pkgs; [
@@ -11,18 +11,21 @@
 		blueman
     bluez
 
+		# system tray battery
+		# cbatticon
+
 		# The following command line tools are used in emacs plugin "desktop-environment":
 
 		# command line screenshot
 		scrot
-    # lock computer through command line
-		slock
 		# control keyboard backlight through command line
 		upower
-    # Enable brightnessctl in userspace
+
 	  brightnessctl
   ];
 
-  # Enable brightnessctl in userspace
+	# lock computer through command line
+	programs.slock.enable = true;
+
 	hardware.brightnessctl.enable = true;
 }

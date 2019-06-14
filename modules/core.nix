@@ -59,6 +59,9 @@ in
 
 		# better x keybindings
     xcape
+
+		# audio mixer
+		aumix
   ];
 
   # enable developer manpages

@@ -5,7 +5,7 @@ let
 in 
 {
   environment.systemPackages = with pkgs; [
-    steam
+    unstable.steam
 		unstable.steamcmd
   ];
 

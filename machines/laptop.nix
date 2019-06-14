@@ -19,10 +19,6 @@
 
   networking = {
     hostName = "nixos"; # Define your hostname.
-    # interfaceMonitor.enable = false; # Disable in favour of wicd
-    wireless.enable = false;  # Disable in favour of wicd
-    useDHCP = false;  # Disable in favour of wicd
-    wicd.enable = true;
   };
 
   # Select internationalisation properties.
@@ -34,7 +30,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Chicago";
 
   # redshift
   services.redshift = {
