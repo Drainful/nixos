@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-in 
+# let
+#   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+# in 
 {
   imports =
     [
@@ -11,7 +11,7 @@ in
 
   environment.systemPackages = with pkgs; [
 	  # Firefox
-    unstable.firefox
+    firefox
 
     # Spotify client
 		spotify
@@ -38,13 +38,13 @@ in
     lvm2
 
     # Terminal emulator
-		unstable.alacritty
+		alacritty
 
 		nethack-x11
 		nethack-qt
   ];
 
   nixpkgs.config = {
-    firefox.enableAdobeFlash = true;
+    firefox.enableAdobeFlash = false;
   };
 }

@@ -9,6 +9,7 @@
 		aspell
 		aspellDicts.en
   ];
-  services.emacs.enable = true;
-  services.emacs.defaultEditor = true;
+	# since I use exwm, I don't need the emacs service
+  # services.emacs.enable = true;
+  # services.emacs.defaultEditor = true;
 }

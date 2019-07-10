@@ -1,14 +1,12 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-in 
 {
   imports =
     [ # ./bash.nix
       # ./neovim.nix
       ./mysql.nix
 			./python.nix
+			./common-lisp.nix
 			# ./lorri.nix
     ];
 
@@ -29,6 +27,8 @@ in
     fzf
 		atool # archive utility
 		zip
+		pmutils
+		nixops
 
     # Wraps bad tui
     rlwrap
@@ -54,14 +54,15 @@ in
     # C++ man pages
 		manpages
 
-    unstable.wine
-		unstable.winetricks
+    wine
+		winetricks
 
 		# better x keybindings
     xcape
 
 		# audio mixer
 		aumix
+
   ];
 
   # enable developer manpages

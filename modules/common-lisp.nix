@@ -2,17 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-
-    # Implementations
+    # SBCL is used as an application, not just a project specific tool.
     sbcl
-    ecl
-
-    lispPackages.quicklisp
-
-    # More recent version of asdf than sbcl ships with.
-    asdf
-
-		# i want to hack with readline stuff without a default.nix
-		readline
   ];
 }

@@ -1,6 +1,3 @@
-let
-  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-in 
 { config, pkgs, ... }:
 
 {
@@ -18,9 +15,9 @@ in
     blender
 
     # nixos stable's version of krita crashes when I use my pen
-    unstable.krita
+    krita
 
     # videogames are art
-    unstable.godot
+    godot
   ];
 }

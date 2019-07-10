@@ -16,13 +16,17 @@ in {
 	  displayManager.lightdm.enable = true;
 
 		# Give EXWM permission to control the session. who knows if this is necessary
-	  displayManager.sessionCommands = "${pkgs.xorg.xhost}/bin/xhost + SI:localuser:$USER";
+	  # displayManager.sessionCommands = "${pkgs.xorg.xhost}/bin/xhost + SI:localuser:$USER";
 
   	windowManager.session = lib.singleton {
       name = "exwm";
 
       # I gave up and used .Xsession. This doesn't seem to work.
-			start = '''';
+			# start = '''';
+
+      # start = ''
+			#   ${myemacs}/bin/emacs -l exwm-enable
+      # '';
 
       # start = ''
 			#   ${myemacs}/bin/emacs -f exwm-enable
@@ -30,14 +34,20 @@ in {
       # '';
 
       # start = ''
+			#   ${myemacs}/bin/emacs --daemon -f exwm-enable
+		  #   ${myemacs}/bin/emacsclient --create-frame
+      # '';
+
+      # start = ''
 			#   ${myemacs}/bin/emacs --daemon=exwm -f exwm-enable
 		  #   ${myemacs}/bin/emacsclient --create-frame --socket-name=exwm
       # '';
 
-      # start = ''
-			#   emacs --daemon=exwm -f exwm-enable
-		  #   emacsclient --create-frame --socket-name=exwm
-      # '';
+      start = ''
+			  emacs --daemon=exwm -f exwm-enable
+		    emacsclient --create-frame --socket-name=exwm
+      '';
+			
 		};
 	};
 }
