@@ -1,17 +1,17 @@
 { config, pkgs, ... }:
 
-# let
-#   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-# in 
+let
+  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+in 
 {
   imports =
     [
-		./fancyfonts.nix
+			./fancyfonts.nix
     ];
 
   environment.systemPackages = with pkgs; [
 	  # Firefox
-    firefox
+    unstable.firefox
 
     # Spotify client
 		spotify
@@ -42,9 +42,15 @@
 
 		nethack-x11
 		nethack-qt
+
+		# volume control
+		pavucontrol
+
+		# flash
+		unstable.flashplayer-standalone
   ];
 
   nixpkgs.config = {
-    firefox.enableAdobeFlash = false;
+    firefox.enableAdobeFlash = true;
   };
 }

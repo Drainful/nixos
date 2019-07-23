@@ -5,13 +5,13 @@
     [
 		  ../modules/exwm.nix
       ../modules/core.nix
+			../modules/games.nix
       ../modules/art.nix
       ../modules/steam.nix
       ../modules/nvidia_prime.nix
       ../modules/emacs.nix
 			../modules/vsftpd.nix
 			../modules/bluetooth.nix
-			# ../modules/hidpi-cursor.nix
     ];
 
   # Use the systemd-boot EFI boot loader
@@ -73,4 +73,8 @@
 
   # lightdm cursor size
 	environment.variables.XCURSOR_SIZE="64";
+
+	# firewall
+	# allow incoming connections from home LAN
+	networking.firewall.extraCommands = "iptables -A INPUT -s 192.168.1.112/24 -j ACCEPT";
 }

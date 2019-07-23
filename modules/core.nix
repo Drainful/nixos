@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+in 
 {
   imports =
     [ # ./bash.nix
@@ -28,7 +31,7 @@
 		atool # archive utility
 		zip
 		pmutils
-		nixops
+		unstable.nixops
 
     # Wraps bad tui
     rlwrap
