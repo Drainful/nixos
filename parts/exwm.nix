@@ -9,8 +9,19 @@ in {
 	  ./sans-desktop-environment.nix
   ];
 
+	# # Compositor
+	# services.compton = {
+	# 	enable = true;
+
+	# 	fade = false;
+
+	# 	shadow = false;
+
+	# 	vSync = "opengl-swc";
+	# };
+
 	# REMEMBER https://www.reddit.com/r/NixOS/comments/8ghg4f/exwm_problem/
-  # AND https://github.com/tazjin/nixos-config/blob/7c673cd0d053e7231bde40aba826a9cd779845a8/desktop.nix#L16-L17
+	# AND https://github.com/tazjin/nixos-config/blob/7c673cd0d053e7231bde40aba826a9cd779845a8/desktop.nix#L16-L17
 	environment.systemPackages = [ myemacs pkgs.lightlocker ];
 	services.xserver = {
 	  displayManager.lightdm.enable = true;

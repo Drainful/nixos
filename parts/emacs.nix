@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    (import ../modules/myemacs.nix { inherit pkgs; })
+    (import ../parts/myemacs.nix { inherit pkgs; })
     # tags server for emacs
     # cquery
 		# spellcheck

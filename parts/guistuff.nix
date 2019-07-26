@@ -13,6 +13,9 @@ in
 	  # Firefox
     unstable.firefox
 
+		# qute
+		unstable.qutebrowser
+
     # Spotify client
 		spotify
 

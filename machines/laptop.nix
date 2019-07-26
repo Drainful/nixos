@@ -3,15 +3,15 @@
 {
   imports =
     [
-		  ../modules/exwm.nix
-      ../modules/core.nix
-			../modules/games.nix
-      ../modules/art.nix
-      ../modules/steam.nix
-      ../modules/nvidia_prime.nix
-      ../modules/emacs.nix
-			../modules/vsftpd.nix
-			../modules/bluetooth.nix
+		  ../parts/exwm.nix
+      ../parts/core.nix
+			../parts/games.nix
+      ../parts/art.nix
+      ../parts/steam.nix
+      ../parts/nvidia_prime.nix
+      ../parts/emacs.nix
+			../parts/vsftpd.nix
+			../parts/bluetooth.nix
     ];
 
   # Use the systemd-boot EFI boot loader

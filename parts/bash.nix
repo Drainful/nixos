@@ -6,7 +6,6 @@
     e = "nvim";
   };
 
-  # add necessary bash related modules
   environment.systemPackages = with pkgs; [
   ];
 }

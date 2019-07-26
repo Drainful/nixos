@@ -66,6 +66,8 @@ in
 		# audio mixer
 		aumix
 
+		# Passwd manager
+		bitwarden-cli
   ];
 
   # enable developer manpages
