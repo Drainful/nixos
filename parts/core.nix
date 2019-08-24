@@ -2,6 +2,7 @@
 
 let
   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+  # my_unstable = import /home/adrian/code/nixpkgs { };
 in 
 {
   imports =
@@ -10,11 +11,13 @@ in
       ./mysql.nix
 			./python.nix
 			./common-lisp.nix
+			./virtualisation.nix
+			./vpn.nix
 			# ./lorri.nix
     ];
 
   environment.systemPackages = with pkgs; [
-
+		# my_unstable.oraclejdk
     # for setting up dotfiles
     super-user-spark
 
@@ -29,6 +32,7 @@ in
     lsof
     fzf
 		atool # archive utility
+		unrar
 		zip
 		pmutils
 		unstable.nixops
@@ -68,6 +72,9 @@ in
 
 		# Passwd manager
 		bitwarden-cli
+
+		mpd
+		mpc_cli
   ];
 
   # enable developer manpages

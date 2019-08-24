@@ -16,8 +16,7 @@ in
 		# qute
 		unstable.qutebrowser
 
-    # Spotify client
-		spotify
+		qbittorrent
 
     # Emacs but worse
     idea.idea-community
@@ -27,14 +26,13 @@ in
     ark
 
     # Image viewer
-    gwenview
-		feh
 
     #Document reader
     okular    
 
     # Media player 
     vlc
+		mpv
 
     # KDE partition manager
     partition-manager
