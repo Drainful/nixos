@@ -14,6 +14,10 @@
 			python-language-server
 			pyls-isort
 			pyls-black
+
+			# For qutebrowser userscripts
+			tldextract beautifulsoup4
+			pyreadability pykeepass stem
 		]))
   ];
 }

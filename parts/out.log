@@ -1,3 +1,5 @@
-/run/current-system/sw/bin/spotify: /nix/store/9iyjbk83bi8fn4ydf9v2hjasgy33nv3m-curl-7.64.0/lib/libcurl-gnutls.so.4: no version information available (required by /run/current-system/sw/bin/spotify)
-Invalid MIT-MAGIC-COOKIE-1 key
-(spotify:2561): Gtk-[1;33mWARNING[0m **: [34m15:16:35.970[0m: cannot open display: :0
+/home/adrian/.nix-profile/bin/spotify: /nix/store/4bl1far2bkjj3m5ai7sfqfh7a0k46x1v-curl-7.64.0/lib/libcurl-gnutls.so.4: no version information available (required by /home/adrian/.nix-profile/bin/spotify)
+/nix/store/nm3dap4w2i5kz1bpqil99bz70wivwm3m-spotify-1.0.96.181.gf6bc1b6b-12/share/spotify/.spotify-wrapped: /nix/store/4bl1far2bkjj3m5ai7sfqfh7a0k46x1v-curl-7.64.0/lib/libcurl-gnutls.so.4: no version information available (required by /nix/store/nm3dap4w2i5kz1bpqil99bz70wivwm3m-spotify-1.0.96.181.gf6bc1b6b-12/share/spotify/.spotify-wrapped)
+/proc/self/exe: /nix/store/4bl1far2bkjj3m5ai7sfqfh7a0k46x1v-curl-7.64.0/lib/libcurl-gnutls.so.4: no version information available (required by /proc/self/exe)
+[1019/094356.205167:ERROR:sandbox_linux.cc(379)] InitializeSandbox() called with multiple threads in process gpu-process.
+segmentation fault

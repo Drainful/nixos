@@ -4,21 +4,43 @@
 {
 	imports =
 		[
+      # ../parts/kde.nix
 			../parts/exwm.nix
 			../parts/core.nix
 			../parts/games.nix
 			../parts/art.nix
 			../parts/steam.nix
-			../parts/nvidia_prime.nix
+			# ../parts/bumblebee.nix
+			../parts/nvidia_disabled.nix
+			# ../parts/nvidia_static.nix
 			../parts/emacs.nix
 			../parts/vsftpd.nix
 			../parts/bluetooth.nix
+			../parts/virtualisation.nix
+			../parts/ios.nix
 		];
+
+	nixpkgs.config.allowUnfreePredicate = with builtins;
+		(pkg: elem (pkg.pname or (parseDrvName pkg.name).name) [
+			"unrar"
+			"steam"
+			"steam-original"
+			"steam-runtime"
+
+			"nvidia-x11"
+			"nvidia-settings"
+			"nvidia-persistenced"
+		]);
+
+  environment.systemPackages = with pkgs; [
+		vulkan-loader
+  ];
 
 	# Use the systemd-boot EFI boot loader
 	boot.loader.systemd-boot.enable = true;
 
 	networking = {
+		enableIPv6 = false;
 		hostName = "nixos"; # Define your hostname.
 	};
 
@@ -33,18 +55,19 @@
 	# Set your time zone.
 	time.timeZone = "America/Chicago";
 
-	# redshift
-	services.redshift = {
-		enable = true;
-		# provider = "geoclue2";
-		latitude = "43.16";
-		longitude = "-77.61";
+	location = {
+		latitude = 42.04;
+		longitude = 87.68;
 	};
+
+	# redshift
+	services.redshift.enable = true;
 
 	# Enable CUPS to print documents.
 	services.printing.enable = true;
 	services.printing.drivers = [ pkgs.gutenprint
-																pkgs.canon-cups-ufr2 ];
+																# pkgs.canon-cups-ufr2
+															];
 
 	# Enable the OpenSSH server.
 	services.sshd.enable = true;
@@ -58,6 +81,9 @@
 
 	# Enable touchpad support.
 	services.xserver.libinput.enable = true;
+	services.xserver.libinput.tapping = true;
+	services.xserver.libinput.middleEmulation = true;
+	services.xserver.libinput.naturalScrolling = false;
 
 	users.mutableUsers = true;
 

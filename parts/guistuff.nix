@@ -2,6 +2,7 @@
 
 let
   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+  my_unstable = import /home/adrian/code/nixpkgs { };
 in 
 {
   imports =
@@ -10,45 +11,34 @@ in
     ];
 
   environment.systemPackages = with pkgs; [
-	  # Firefox
-    unstable.firefox
+	  # Browser
+    my_unstable.firefox
+		my_unstable.qutebrowser
 
-		# qute
-		unstable.qutebrowser
-
+		# torrenting
 		qbittorrent
 
-    # Emacs but worse
-    idea.idea-community
-    simple-scan
-
-		# Gui archive manager
-    ark
-
-    # Image viewer
-
-    #Document reader
-    okular    
+		# graphical file manager
+		# dolphin
 
     # Media player 
-    vlc
 		mpv
 
     # KDE partition manager
-    partition-manager
+    # partition-manager
     lvm2
 
     # Terminal emulator
 		alacritty
 
-		nethack-x11
-		nethack-qt
+		# nethack-x11
+		# nethack-qt
 
 		# volume control
 		pavucontrol
 
-		# flash
-		unstable.flashplayer-standalone
+		# on-screen keyboard
+		my_unstable.onboard
   ];
 
   nixpkgs.config = {

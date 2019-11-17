@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
+  my_unstable = import /home/adrian/code/nixpkgs { };
 in 
 {
-  environment.systemPackages = with pkgs; [
-    unstable.steam
+	programs.java.enable = true;
+	
+	environment.systemPackages = with pkgs; [
+    (my_unstable.steam.override { withJava = true; nativeOnly = true; }).run
   ];
 
   hardware.opengl.driSupport32Bit = true;

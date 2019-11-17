@@ -12,4 +12,12 @@ in
 			host.enable = true;
 		};
 	};
+
+	# fileSystems."/virtualboxshare" = {
+	# 	fsType = "vboxsf";
+	# 	device = "vboxshare";
+	# 	options = [ "rw" ];
+	# };
+
+	# security.rngd.enable = false;
 }

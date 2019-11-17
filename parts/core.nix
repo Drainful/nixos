@@ -2,22 +2,19 @@
 
 let
   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-  # my_unstable = import /home/adrian/code/nixpkgs { };
+  my_unstable = import /home/adrian/code/nixpkgs { };
 in 
 {
   imports =
-    [ # ./bash.nix
-      # ./neovim.nix
+    [ 
       ./mysql.nix
 			./python.nix
 			./common-lisp.nix
-			./virtualisation.nix
 			./vpn.nix
-			# ./lorri.nix
+			./mpd.nix
     ];
 
   environment.systemPackages = with pkgs; [
-		# my_unstable.oraclejdk
     # for setting up dotfiles
     super-user-spark
 
@@ -33,9 +30,23 @@ in
     fzf
 		atool # archive utility
 		unrar
+		p7zip
 		zip
+		unzip
 		pmutils
-		unstable.nixops
+		nixops
+		telnet
+		ripgrep # fast searching tool
+		youtube-dl
+		ffmpeg
+		direnv
+		neofetch
+		killall
+		file
+		usbutils
+
+		# shell (literally just for eshell completions)
+		fish
 
     # Wraps bad tui
     rlwrap
@@ -50,13 +61,7 @@ in
 		nox
 
     # vpn for accessing school server
-    openconnect
-
-    # backup through google drive
-    gdrive
-
-    # sync files
-    rsync
+    # openconnect
 
     # C++ man pages
 		manpages
@@ -72,11 +77,8 @@ in
 
 		# Passwd manager
 		bitwarden-cli
-
-		mpd
-		mpc_cli
   ];
 
-  # enable developer manpages
+	# enable developer manpages
   documentation.dev.enable = true;
 }

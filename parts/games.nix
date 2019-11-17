@@ -2,18 +2,33 @@
 
 let
   unstable = import (fetchTarball https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz) { };
-  # my_unstable = import /home/adrian/code/nixpkgs { };
+  my_unstable = import /home/adrian/code/nixpkgs { };
 in 
 {
   imports = [];
 
   environment.systemPackages = with pkgs; [
 		# minecraft
-		unstable.multimc
+		my_unstable.multimc
 
-		# ps2 emulator
-		pcsx2
+		# pcsx2 # ps2 emulator
+		# mednafen # ps1 emulator
+		# azimuth
 
-		unstable.lutris
+		lutris
   ];
+
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
+
+	 # increase ulimit for lutris
+	systemd.extraConfig = ''DefaultLimitNOFILE=524288'';
+	systemd.user.extraConfig = ''DefaultLimitNOFILE=524288'';
+
+	security.pam.loginLimits = [{
+		domain = "*";
+		type = "soft";
+		item = "nofile";
+		value = "524288";
+	}];
 }
